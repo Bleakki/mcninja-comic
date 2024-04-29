@@ -1810,8 +1810,8 @@
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
     const last = document.getElementById('last');
-    let prevChapter = document.getElementById('prev-arc');
-    let nextChapter = document.getElementById('next-arc');
+    const prevChapter = document.getElementById('prev-arc');
+    const nextChapter = document.getElementById('next-arc');
 
     const prevUrl = new URL(window.location.href);
     const nextUrl = new URL(window.location.href);
@@ -1865,6 +1865,10 @@
     next.setAttribute('href', nextUrl.toString());
     nextChapter.setAttribute('href', nextChapterUrl.toString());
     prevChapter.setAttribute('href', prevChapterUrl.toString());
+
+    img.addEventListener('click', function () {
+      window.location.href = nextUrl.toString();
+    });
 
     select.addEventListener('change', function (event) {
       if (event.target.value === 'default') {
